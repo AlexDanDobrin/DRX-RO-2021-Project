@@ -1,0 +1,6 @@
+*.plist
+*.xcodeproj
+*.json
+*.png
+*.DS_Store
+Assets.xcassets/

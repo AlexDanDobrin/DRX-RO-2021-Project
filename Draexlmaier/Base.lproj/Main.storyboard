@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aTT-ol-92v">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="KSx-mV-zTv">
+            <objects>
+                <tabBarController id="aTT-ol-92v" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="12b-JB-z9P">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="4L1-Dr-yBL" kind="relationship" relationship="viewControllers" id="vF0-Rx-uqP"/>
+                        <segue destination="LpP-yV-4DV" kind="relationship" relationship="viewControllers" id="7U5-g1-PRW"/>
+                        <segue destination="fBd-Fz-eEo" kind="relationship" relationship="viewControllers" id="30I-Nd-N5A"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aHV-Kx-q3c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-499" y="25"/>
+        </scene>
+        <!--Employee View Controller-->
+        <scene sceneID="c4F-OM-5qv">
+            <objects>
+                <tableViewController id="4L1-Dr-yBL" customClass="EmployeeViewController" customModule="Draexlmaier" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="DsY-F7-Iue">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="4L1-Dr-yBL" id="Kz1-4Z-VOh"/>
+                            <outlet property="delegate" destination="4L1-Dr-yBL" id="psa-q9-gKC"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" image="person.3" catalog="system" id="qD0-No-Cdl"/>
+                    <connections>
+                        <segue destination="gBz-eB-yfz" kind="presentation" id="ywa-vW-p2X"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZK7-je-VBj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1558" y="777"/>
+        </scene>
+        <!--Report View Controller-->
+        <scene sceneID="SXS-u4-vbO">
+            <objects>
+                <viewController id="fBd-Fz-eEo" customClass="ReportViewController" customModule="Draexlmaier" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EUa-87-yQH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ZIg-JJ-BCV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" tag="2" image="printer" catalog="system" id="slh-5G-9Rf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vzr-4s-CKK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="574" y="777"/>
+        </scene>
+        <!--Cost Center View Controller-->
+        <scene sceneID="wcP-bO-SOM">
+            <objects>
+                <tableViewController id="LpP-yV-4DV" customClass="CostCenterViewController" customModule="Draexlmaier" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2wZ-Je-iyS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="LpP-yV-4DV" id="cEQ-Z9-F5p"/>
+                            <outlet property="delegate" destination="LpP-yV-4DV" id="s5a-uz-qmX"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" tag="1" image="building.2" catalog="system" id="Aci-4F-cI7"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J6Y-7k-GDK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-500" y="777"/>
+        </scene>
+        <!--Asset View Controller-->
+        <scene sceneID="NFE-Qt-0pz">
+            <objects>
+                <tableViewController id="gBz-eB-yfz" customClass="AssetViewController" customModule="Draexlmaier" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Qxl-NA-HPR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="7xf-lU-nzn">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7xf-lU-nzn" id="Wrh-RW-GMP">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="gBz-eB-yfz" id="PBR-rH-XXD"/>
+                            <outlet property="delegate" destination="gBz-eB-yfz" id="CzY-9d-ZkL"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PE3-kN-BO3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-500" y="1550"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="building.2" catalog="system" width="128" height="106"/>
+        <image name="person.3" catalog="system" width="128" height="62"/>
+        <image name="printer" catalog="system" width="128" height="111"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
