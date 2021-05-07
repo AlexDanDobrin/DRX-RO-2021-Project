@@ -8,22 +8,28 @@
 import UIKit
 
 class AssetViewController: UITableViewController {
-
+    
+    var employee: String?
+    var costCenter: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if let e = employee {
+            print(e)
+        }
+        
+        if let cc = costCenter {
+            print(cc)
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func addAssetE(_ sender: UIBarButtonItem) {
+        print("Button was pressed from E Asset VC.")
     }
-    */
+    
+    @IBAction func addAssetCC(_ sender: UIBarButtonItem) {
+        print("Button was pressed from CC Asset VC.")
+    }
 
 }

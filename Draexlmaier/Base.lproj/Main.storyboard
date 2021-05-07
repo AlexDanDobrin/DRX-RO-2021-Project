@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,16 +17,16 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="4L1-Dr-yBL" kind="relationship" relationship="viewControllers" id="vF0-Rx-uqP"/>
-                        <segue destination="LpP-yV-4DV" kind="relationship" relationship="viewControllers" id="7U5-g1-PRW"/>
-                        <segue destination="fBd-Fz-eEo" kind="relationship" relationship="viewControllers" id="30I-Nd-N5A"/>
+                        <segue destination="kZY-H7-Bba" kind="relationship" relationship="viewControllers" id="vF0-Rx-uqP"/>
+                        <segue destination="ECq-DB-Q1O" kind="relationship" relationship="viewControllers" id="7U5-g1-PRW"/>
+                        <segue destination="vaV-AF-0xb" kind="relationship" relationship="viewControllers" id="CVh-Sg-fMo"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aHV-Kx-q3c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-499" y="25"/>
+            <point key="canvasLocation" x="-1264" y="432"/>
         </scene>
-        <!--Employee View Controller-->
+        <!--Employees-->
         <scene sceneID="c4F-OM-5qv">
             <objects>
                 <tableViewController id="4L1-Dr-yBL" customClass="EmployeeViewController" customModule="Draexlmaier" customModuleProvider="target" sceneMemberID="viewController">
@@ -35,37 +34,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EmployeeCell" id="doI-3r-qqe">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="doI-3r-qqe" id="owK-Mt-RTL">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="4L1-Dr-yBL" id="Kz1-4Z-VOh"/>
                             <outlet property="delegate" destination="4L1-Dr-yBL" id="psa-q9-gKC"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" image="person.3" catalog="system" id="qD0-No-Cdl"/>
+                    <navigationItem key="navigationItem" title="Employees" id="Y5O-Qk-lPu">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="tAn-g1-6ok">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addNewEmployee:" destination="4L1-Dr-yBL" id="dnN-M3-qko"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <segue destination="gBz-eB-yfz" kind="presentation" id="ywa-vW-p2X"/>
+                        <segue destination="gBz-eB-yfz" kind="show" identifier="EtoAsset" id="pz1-bs-HI2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZK7-je-VBj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1558" y="777"/>
+            <point key="canvasLocation" x="1290" y="-372"/>
         </scene>
-        <!--Report View Controller-->
-        <scene sceneID="SXS-u4-vbO">
-            <objects>
-                <viewController id="fBd-Fz-eEo" customClass="ReportViewController" customModule="Draexlmaier" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="EUa-87-yQH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="ZIg-JJ-BCV"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" tag="2" image="printer" catalog="system" id="slh-5G-9Rf"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vzr-4s-CKK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="574" y="777"/>
-        </scene>
-        <!--Cost Center View Controller-->
+        <!--Cost Centers-->
         <scene sceneID="wcP-bO-SOM">
             <objects>
                 <tableViewController id="LpP-yV-4DV" customClass="CostCenterViewController" customModule="Draexlmaier" customModuleProvider="target" sceneMemberID="viewController">
@@ -73,27 +73,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CostCenterCell" id="n7y-eF-y0a">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n7y-eF-y0a" id="W1v-LK-9JK">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="LpP-yV-4DV" id="cEQ-Z9-F5p"/>
                             <outlet property="delegate" destination="LpP-yV-4DV" id="s5a-uz-qmX"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" tag="1" image="building.2" catalog="system" id="Aci-4F-cI7"/>
+                    <navigationItem key="navigationItem" title="Cost Centers" id="Xb2-qc-eOc">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gEp-pb-qTJ">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addNewCostCenter:" destination="LpP-yV-4DV" id="EZO-mR-7bx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="oxS-pj-FoK" kind="show" identifier="CCtoAsset" id="DZC-QK-0V0"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J6Y-7k-GDK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-500" y="777"/>
+            <point key="canvasLocation" x="1290" y="432"/>
         </scene>
-        <!--Asset View Controller-->
+        <!--Assets-->
         <scene sceneID="NFE-Qt-0pz">
             <objects>
                 <tableViewController id="gBz-eB-yfz" customClass="AssetViewController" customModule="Draexlmaier" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Qxl-NA-HPR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Qxl-NA-HPR" customClass="I">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="7xf-lU-nzn">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EACell" id="7xf-lU-nzn">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7xf-lU-nzn" id="Wrh-RW-GMP">
@@ -107,10 +127,152 @@
                             <outlet property="delegate" destination="gBz-eB-yfz" id="CzY-9d-ZkL"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Assets" id="K2b-F1-2YJ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="dgv-Zo-Czk">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addAssetE:" destination="gBz-eB-yfz" id="i8b-QW-wtL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PE3-kN-BO3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-500" y="1550"/>
+            <point key="canvasLocation" x="2638" y="-372"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="15a-Z7-Lz6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kZY-H7-Bba" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" image="person.3" catalog="system" id="qD0-No-Cdl"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hMq-NV-saz">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.30187052513083773" green="0.64223514998461106" blue="0.67548381979695438" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4L1-Dr-yBL" kind="relationship" relationship="rootViewController" id="yaP-21-xru"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Yd-NE-Cc1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="96" y="-372"/>
+        </scene>
+        <!--Active assets-->
+        <scene sceneID="so4-gh-cPz">
+            <objects>
+                <tableViewController id="XT4-6e-LT8" customClass="ReportViewController" customModule="Draexlmaier" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Fip-5b-tf2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReportCell" id="0Sb-9y-XPg">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Sb-9y-XPg" id="nTd-LS-MaN">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="XT4-6e-LT8" id="BM7-nR-DLV"/>
+                            <outlet property="delegate" destination="XT4-6e-LT8" id="g9j-QF-em4"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Active assets" id="ijP-pj-uTQ"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Xs-3i-zge" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1290" y="1264"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bqy-9l-CcR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ECq-DB-Q1O" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="1" image="building.2" catalog="system" id="Aci-4F-cI7"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bhd-PO-V9Q">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.30187052510000001" green="0.64223514999999998" blue="0.67548381980000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LpP-yV-4DV" kind="relationship" relationship="rootViewController" id="SpX-zj-sdt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5pZ-Hj-PyZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="96" y="432"/>
+        </scene>
+        <!--Assets-->
+        <scene sceneID="pxH-L6-omd">
+            <objects>
+                <tableViewController id="oxS-pj-FoK" customClass="AssetViewController" customModule="Draexlmaier" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Byf-gC-NC2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CCACell" id="35w-0I-cn7">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="35w-0I-cn7" id="IOM-IT-ddK">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="oxS-pj-FoK" id="rev-gq-Lm7"/>
+                            <outlet property="delegate" destination="oxS-pj-FoK" id="WP1-Wo-bgg"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Assets" id="cHJ-Ya-MUH">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="eaP-1t-Kbl">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addAssetCC:" destination="oxS-pj-FoK" id="rGH-km-h0T"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i8d-Eb-iFt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2638" y="432"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="jTU-dm-ZO4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vaV-AF-0xb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="printer" catalog="system" id="15p-jW-72K"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="24o-bl-Lgi">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.30187052510000001" green="0.64223514999999998" blue="0.67548381980000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XT4-6e-LT8" kind="relationship" relationship="rootViewController" id="wiU-cW-jL3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Xt-8g-PQt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="96" y="1264"/>
         </scene>
     </scenes>
     <resources>
