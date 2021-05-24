@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Asset" representedClassName=".Asset" syncable="YES" codeGenerationType="class">
+        <attribute name="asset_cstc_nr" attributeType="String"/>
+        <attribute name="asset_id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="descript" attributeType="String"/>
+        <attribute name="input_date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="hasAssetEmployee" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Asset_employee" inverseName="ofAsset" inverseEntity="Asset_employee"/>
+        <relationship name="ofCostCenter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Costcenters" inverseName="hasAssets" inverseEntity="Costcenters"/>
+        <relationship name="ofEmployee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="hasAssets" inverseEntity="Employee"/>
+    </entity>
+    <entity name="Asset_employee" representedClassName=".Asset_employee" syncable="YES" codeGenerationType="class">
+        <attribute name="asset_id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="cstc_nr" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="empl_id" attributeType="Integer 32" usesScalarValueType="YES"/>
+        <attribute name="end_of_life" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="from" attributeType="String"/>
+        <attribute name="to" attributeType="String"/>
+        <relationship name="ofAsset" maxCount="1" deletionRule="Nullify" destinationEntity="Asset" inverseName="hasAssetEmployee" inverseEntity="Asset"/>
+        <relationship name="ofCostCenter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Costcenters" inverseName="hasAssetEmployee" inverseEntity="Costcenters"/>
+        <relationship name="ofEmployee" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="hasAssetEmployee" inverseEntity="Employee"/>
+    </entity>
+    <entity name="Costcenters" representedClassName=".Costcenters" syncable="YES" codeGenerationType="class">
+        <attribute name="cstc_delete_flag" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="cstc_empl_id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="cstc_nr" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="hasAssetEmployee" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Asset_employee" inverseName="ofCostCenter" inverseEntity="Asset_employee"/>
+        <relationship name="hasAssets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Asset" inverseName="ofCostCenter" inverseEntity="Asset"/>
+        <relationship name="hasEmployee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="ofCostCenter" inverseEntity="Employee"/>
+    </entity>
+    <entity name="Employee" representedClassName=".Employee" syncable="YES" codeGenerationType="class">
+        <attribute name="costcenter" attributeType="String"/>
+        <attribute name="empl_id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="manager" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="hasAssetEmployee" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Asset_employee" inverseName="ofEmployee" inverseEntity="Asset_employee"/>
+        <relationship name="hasAssets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Asset" inverseName="ofEmployee" inverseEntity="Asset"/>
+        <relationship name="ofCostCenter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Costcenters" inverseName="hasEmployee" inverseEntity="Costcenters"/>
+    </entity>
+    <elements>
+        <element name="Asset" positionX="21.34375" positionY="-882.2265625" width="128" height="163"/>
+        <element name="Asset_employee" positionX="126.3984375" positionY="-513.80859375" width="128" height="178"/>
+        <element name="Costcenters" positionX="-319.7421875" positionY="-484.94140625" width="128" height="133"/>
+        <element name="Employee" positionX="-332.1484375" positionY="-805.6171875" width="128" height="148"/>
+    </elements>
+</model>
