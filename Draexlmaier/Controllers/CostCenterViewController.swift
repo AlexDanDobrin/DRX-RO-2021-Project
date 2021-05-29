@@ -28,9 +28,12 @@ class CostCenterViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CostCenterCell", for: indexPath) as! CostCenterCell
-        
+         
         if let manager = getManager(for: String(costCenters[indexPath.row].cstc_empl_id)) {
             cell.manager_name = manager.name
+            cell.costCenter = costCenters[indexPath.row]
+        } else {
+            cell.manager_name = "Unknown"
             cell.costCenter = costCenters[indexPath.row]
         }
         
@@ -143,10 +146,10 @@ class CostCenterViewController: UITableViewController {
                     self.showToast(controller: self, message: "The number is already taken!", seconds: 1.5)
                     return
                 }
-                guard let _ = self.getManager(for: cstc_empl_id.text!) else {
-                    self.showToast(controller: self, message: "The manager with id \(cstc_empl_id.text!) does not exist!", seconds: 1.5)
-                    return
-                }
+//                guard let _ = self.getManager(for: cstc_empl_id.text!) else {
+//                    self.showToast(controller: self, message: "The manager with id \(cstc_empl_id.text!) does not exist!", seconds: 1.5)
+//                    return
+//                }
                 
                 let newCostCenter = Costcenters(context: self.context)
                 newCostCenter.cstc_nr = cc_nr

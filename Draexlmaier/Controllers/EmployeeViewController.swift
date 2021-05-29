@@ -144,10 +144,10 @@ class EmployeeViewController: UITableViewController {
         let action = UIAlertAction(title: "Add", style: .default) { (action) in
             
             if let empl_id = Int32(id.text!), let cc_nr = costCenter.text, let empl_name = name.text, let manager_id = manager.text {
-                guard let _ = self.CostCenter_obj(cc_nr) else {
-                    self.showToast(controller: self, message: "Cost center with no \(cc_nr) does not exist!", seconds: 1.5)
-                    return
-                }
+//                guard let _ = self.CostCenter_obj(cc_nr) else {
+//                    self.showToast(controller: self, message: "Cost center with no \(cc_nr) does not exist!", seconds: 1.5)
+//                    return
+//                }
                 
                 if let _ = self.Employee_obj(id.text!) {
                     self.showToast(controller: self, message: "Id is already taken", seconds: 1.5)
